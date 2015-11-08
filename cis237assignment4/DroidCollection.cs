@@ -124,5 +124,73 @@ namespace cis237assignment4
             //return the completed string
             return returnString;
         }
+
+        public void SortByDroid()
+        {
+            GenericLinkedList<AstromechDroid> astromechList = new GenericLinkedList<AstromechDroid>();
+            GenericLinkedList<JanitorDroid> janitorList = new GenericLinkedList<JanitorDroid>();
+            GenericLinkedList<ProtocolDroid> protocolList = new GenericLinkedList<ProtocolDroid>();
+            GenericLinkedList<UtilityDroid> utilityList = new GenericLinkedList<UtilityDroid>();
+
+
+            GenericLinkedList<IDroid> tempList = new GenericLinkedList<IDroid>();
+
+            foreach(Droid d in droidCollection)
+            {
+                if(d is AstromechDroid)
+                {
+                    astromechList.Add((AstromechDroid)d);
+                }
+                else if(d is JanitorDroid)
+                {
+                    janitorList.Add((JanitorDroid)d);
+                }
+                else if(d is ProtocolDroid)
+                {
+                    protocolList.Add((ProtocolDroid)d);
+                }
+                else if(d is UtilityDroid)
+                {
+                    utilityList.Add((UtilityDroid)d);
+                }
+            }
+
+            while(astromechList.headNode.Next != null)
+            {
+                tempList.Add(astromechList.Dequeue());
+            }
+            tempList.Add(astromechList.Dequeue());
+
+            while(janitorList.headNode.Next != null)
+            {
+                tempList.Add(janitorList.Dequeue());
+            }
+            tempList.Add(janitorList.Dequeue());
+
+            while(protocolList.headNode.Next != null)
+            {
+                tempList.Add(protocolList.Dequeue());
+            }
+            tempList.Add(protocolList.Dequeue());
+
+            while(utilityList.headNode.Next != null)
+            {
+                tempList.Add(utilityList.Dequeue());
+            }
+            tempList.Add(utilityList.Dequeue());
+
+            droidCollection = new IDroid[lengthOfCollection];
+            int counter = 0;
+            while(counter < lengthOfCollection)
+            {
+                if(tempList.headNode != null)
+                {
+                    droidCollection[counter] = tempList.Dequeue();
+                    counter++;
+                }
+            }
+            
+
+        }
     }
 }
