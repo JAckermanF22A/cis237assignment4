@@ -127,13 +127,13 @@ namespace cis237assignment4
 
         public void SortByDroid()
         {
-            GenericLinkedList<AstromechDroid> astromechList = new GenericLinkedList<AstromechDroid>();
-            GenericLinkedList<JanitorDroid> janitorList = new GenericLinkedList<JanitorDroid>();
-            GenericLinkedList<ProtocolDroid> protocolList = new GenericLinkedList<ProtocolDroid>();
-            GenericLinkedList<UtilityDroid> utilityList = new GenericLinkedList<UtilityDroid>();
+            LinkedListStack<AstromechDroid> astromechList = new LinkedListStack<AstromechDroid>();
+            LinkedListStack<JanitorDroid> janitorList = new LinkedListStack<JanitorDroid>();
+            LinkedListStack<ProtocolDroid> protocolList = new LinkedListStack<ProtocolDroid>();
+            LinkedListStack<UtilityDroid> utilityList = new LinkedListStack<UtilityDroid>();
 
 
-            GenericLinkedList<IDroid> tempList = new GenericLinkedList<IDroid>();
+            LinkedListQueue<IDroid> tempList = new LinkedListQueue<IDroid>();
 
             foreach(Droid d in droidCollection)
             {
@@ -155,35 +155,35 @@ namespace cis237assignment4
                 }
             }
 
-            while(astromechList.headNode.Next != null)
+            while(astromechList.lastNode.Tail != null)
             {
-                tempList.Add(astromechList.Dequeue());
+                tempList.Enqueue(astromechList.PopOff());
             }
-            tempList.Add(astromechList.Dequeue());
+            tempList.Enqueue(astromechList.PopOff());
 
-            while(janitorList.headNode.Next != null)
+            while(janitorList.lastNode.Tail != null)
             {
-                tempList.Add(janitorList.Dequeue());
+                tempList.Enqueue(janitorList.PopOff());
             }
-            tempList.Add(janitorList.Dequeue());
+            tempList.Enqueue(janitorList.PopOff());
 
-            while(protocolList.headNode.Next != null)
+            while(protocolList.lastNode.Tail != null)
             {
-                tempList.Add(protocolList.Dequeue());
+                tempList.Enqueue(protocolList.PopOff());
             }
-            tempList.Add(protocolList.Dequeue());
+            tempList.Enqueue(protocolList.PopOff());
 
-            while(utilityList.headNode.Next != null)
+            while(utilityList.lastNode.Tail != null)
             {
-                tempList.Add(utilityList.Dequeue());
+                tempList.Enqueue(utilityList.PopOff());
             }
-            tempList.Add(utilityList.Dequeue());
+            tempList.Enqueue(utilityList.PopOff());
 
             droidCollection = new IDroid[lengthOfCollection];
             int counter = 0;
             while(counter < lengthOfCollection)
             {
-                if(tempList.headNode != null)
+                if(tempList.lastNode != null)
                 {
                     droidCollection[counter] = tempList.Dequeue();
                     counter++;
