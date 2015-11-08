@@ -6,30 +6,18 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class GenericLinkedList<T>
+    class LinkedListQueue<T>
     {
-        private GenericNode<T> currentNode;
+        public GenericNode<T> headNode;
+        public GenericNode<T> lastNode;
 
-        private GenericNode<T> lastNode;
-
-        public GenericNode<T> headNode
-        {
-            get;
-            set;
-        }
-
-        public GenericLinkedList()
-        {
-            headNode = null;
-        }
-
-        public void Add(T newDroid)
+        public void Enqueue(T newDroid)
         {
             GenericNode<T> node = new GenericNode<T>();
 
             node.Droid = newDroid;
 
-            if(headNode == null)
+            if (headNode == null)
             {
                 headNode = node;
             }
