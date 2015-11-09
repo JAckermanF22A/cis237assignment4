@@ -8,9 +8,11 @@ namespace cis237assignment4
 {
     class LinkedListQueue<T>
     {
-        public GenericNode<T> headNode;
+
+        public GenericNode<T> headNode; //First-in-first-out, so we use a head node
         public GenericNode<T> lastNode;
 
+        //Adds a droid to the queue/list
         public void Enqueue(T newDroid)
         {
             GenericNode<T> node = new GenericNode<T>();
@@ -29,6 +31,7 @@ namespace cis237assignment4
             lastNode = node;
         }
 
+        //Removes a droid from the queue/list
         public T Dequeue()
         {
             T returnDroid = headNode.Droid;

@@ -66,5 +66,23 @@ namespace cis237assignment4
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
         }
+
+        //Method for comparing droids total cost
+        public int CompareTo(object obj)
+        {
+            //Downcasts passed in object as a Droid 
+            Droid compareDroid = (Droid)obj;
+
+            //Calculates currently selected Droid's Total Cost
+            this.CalculateTotalCost();
+
+            
+            //Finds passed in Droid's Total Cost
+            compareDroid.CalculateTotalCost();
+            
+            //Returns a value to determine whether or not the passed in Droid has a lower, higher, or equal Total Cost
+            return this.totalCost.CompareTo(compareDroid.totalCost);
+            
+        }
     }
 }

@@ -16,6 +16,11 @@ namespace cis237assignment4
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
 
+            //Creates a merge sort class.
+            MergeSort mergeSort = new MergeSort();
+
+            //Example droids for use in testing the program.
+            //9 droids to make sure it works even with odd numbered arrays/lists.
             droidCollection.Add("Carbonite", "Utility", "Bronze", true, true, true);
             droidCollection.Add("Carbonite", "Protocol", "Bronze", 3);
             droidCollection.Add("Carbonite", "Astromech", "Bronze", true, true, true, true, 5);
@@ -25,6 +30,8 @@ namespace cis237assignment4
             droidCollection.Add("Carbonite", "Protocol", "Silver", 3);
             droidCollection.Add("Carbonite", "Astromech", "Silver", true, true, true, true, 5);
             droidCollection.Add("Carbonite", "Janitor", "Silver", true, true, true, true, true);
+
+            droidCollection.Add("Vanadium", "Protocol", "Gold", 6);
 
 
 
@@ -40,8 +47,8 @@ namespace cis237assignment4
             //Get the choice that the user makes
             int choice = userInterface.GetMenuChoice();
 
-            //While the choice is not equal to 3, continue to do work with the program
-            while (choice != 4)
+            //While the choice is not equal to 5, continue to do work with the program
+            while (choice != 5)
             {
                 //Test which choice was made
                 switch (choice)
@@ -55,8 +62,13 @@ namespace cis237assignment4
                     case 2:
                         userInterface.PrintDroidList();
                         break;
+                    //Choose to sort the list by droid type
                     case 3:
                         droidCollection.SortByDroid();
+                        break;
+                    //Chose to sort the list by droid total price
+                    case 4:
+                        droidCollection.SortByPrice();
                         break;
                 }
                 //Re-display the menu, and re-prompt for the choice
