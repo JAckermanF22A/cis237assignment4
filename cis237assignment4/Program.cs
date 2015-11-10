@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Jacob Ackerman
+//Although it's weird signing my name to this when most of the code here was actually written by you
+
+//Actually I don't know if I need to put my name in here
+
+
 namespace cis237assignment4
 {
     class Program
